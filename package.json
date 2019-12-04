@@ -1,0 +1,19 @@
+{
+  "name": "delphi-js",
+  "version": "1.0.0",
+  "description": "My tribute to Delphi 7 on Windows XP. Let the Web be a new home of yours",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodhousekeeper/npm-delphi-js.git"
+  },
+  "author": "@goodhousekeeper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goodhousekeeper/npm-delphi-js/issues"
+  },
+  "homepage": "https://github.com/goodhousekeeper/npm-delphi-js#readme"
+}
