@@ -1,4 +1,4 @@
-import TControl from './TControl.js'
+import {TControl} from './internal.js'
 
 const MODULE_STYLES = `
 /* Styles for TPanel */

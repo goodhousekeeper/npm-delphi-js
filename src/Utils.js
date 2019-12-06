@@ -2,7 +2,7 @@
  * Utility static class
  */
 
-import * as Constants from './Constants.js'
+import {Constants} from './internal.js'
 
 export default class Utils {
     /**

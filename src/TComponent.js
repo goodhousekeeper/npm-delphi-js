@@ -1,4 +1,4 @@
-import TApplication from './TApplication.js'
+import {TApplication} from './internal.js'
 
 export default class TComponent {
     constructor(properties) {

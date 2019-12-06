@@ -1,11 +1,4 @@
-import Utils from './Utils.js'
-import * as Constants from './Constants.js'
-
-/* Import essential components module */
-import * as Forms from './Forms.js'
-import * as Buttons from './Buttons.js'
-import * as Inputs from './Inputs.js'
-import * as Panels from '../delphi/Panels.js'
+import {Utils, Constants, Forms, Buttons, Inputs} from './internal.js'
 
 /* Application instance */
 const TApplication = Object.create(null);
@@ -194,16 +187,13 @@ TApplication.addComponentsToLibrary(Forms);
 TApplication.addComponentsToLibrary(Buttons);
 TApplication.addComponentsToLibrary(Inputs);
 
-/* Add system Objects */
+/* Add core Objects */
 TApplication.createObject(Constants.OVERLAY_PROPERTIES);
 
 /* Set up base properties */
 TApplication.caption = caption;
 TApplication.icon = icon;
 
-
 /* ----------------------------------------------------------------------------- */
+
 export default TApplication;
-export {TApplication, Panels /* and other non-essential modules */}
-
-
