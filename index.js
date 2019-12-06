@@ -1,6 +1,4 @@
-import * as delphi from './src/internal.js'
-
-module.exports = {
-    TApplication: delphi.TApplication,
-    Panels: delphi.Panels
-}
+export {
+    TApplication,
+    Panels
+} from './src/internal.js'

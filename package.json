@@ -1,6 +1,6 @@
 {
   "name": "delphi-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "My tribute to Delphi 7 on Windows XP. Let the Web be a new home of yours",
   "main": "index.js",
   "scripts": {
