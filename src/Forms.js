@@ -286,10 +286,7 @@ class TForm extends TControl {
                 }
             };
 
-            if (this.getProperty('noMaximizeButton')) {
-                maximizeButton = undefined;
-                restoreButton = undefined;
-            } else {
+            if (!this.getProperty('noMaximizeButton')) {
                 title.appendChild(maximizeButton);
                 maximizeButton.className = 'Buttons MaximizeButton';
                 maximizeButton.id = container.id + '.MaximizeButton';
@@ -386,7 +383,7 @@ class TForm extends TControl {
         this.style.zIndex = Constants.OVERLAY_Z_INDEX + 1;
         this.align().fadeIn();
         if (modalStack.length > 0) {
-            modalStack[modalStack.length - 1].style.zIndex = Constants.OVERLAY_Z_INDEX - 1;
+            modalStack[modalStack.length - 1].style.zIndex = String(Constants.OVERLAY_Z_INDEX - 1);
         }
         modalStack.push(this);
         this.setProperty('modal', true);
@@ -403,7 +400,7 @@ class TForm extends TControl {
             super.hide();
             if (modalStack.length > 0) {
                 const form = modalStack[modalStack.length - 1];
-                form.style.zIndex = Constants.OVERLAY_Z_INDEX + 1;
+                form.style.zIndex = String(Constants.OVERLAY_Z_INDEX + 1);
                 form.setActive();
             } else {
                 TApplication.getMainForm().setActive();
