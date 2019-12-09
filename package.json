@@ -1,11 +1,11 @@
 {
   "name": "delphi-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "My tribute to Delphi 7 on Windows XP. Let the Web be a new home of yours",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node ./bin/post-instal.js"
+    "postinstall": "node ./bin/post-install.js"
   },
   "repository": {
     "type": "git",
