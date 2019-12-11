@@ -29,9 +29,9 @@
 
 ### Properties
 
- * name
  * className
  * contentProperties
+ * name
 
 ### Methods
 
@@ -45,10 +45,15 @@
 
 **[TControl.js]**
 
-### Settings  
+### Properties  
  
  * bottom
+ * checked
  * color
+ * caption
+ * enabled
+ * icon
+ * invalidated
  * fontSize
  * fontWeight
  * height
@@ -59,19 +64,28 @@
  * right
  * textAlign
  * top
+ * visible
  * width
- 
-### Properties 
  
 ### Methods
 
+ * checked
+ * click 
  * createNode
- 
+ * destroyNode
+ * enabled
+ * fadeIn
+ * fadeOut
+ * hide
+ * invalidated 
+ * onChange
+ * onDestroy
+ * onHide
+ * onInput
+ * onShow
+ * setEventListener
+ * show
 
-
-
-
-## TComponent -> TControl - визуальный компонент
 
 ## TComponent -> TControl -> TOverlay - оверлей для отображения модальных окон
 
