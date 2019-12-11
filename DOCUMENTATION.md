@@ -85,6 +85,12 @@
  * onShow
  * setEventListener
  * show
+ 
+## TComponent &rarr; TControl &rarr; TOverlay: 
+
+**[TForm.js]**
+
+### Properties  
 
 
 ## TComponent -> TControl -> TOverlay - оверлей для отображения модальных окон
