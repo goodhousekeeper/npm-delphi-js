@@ -4,13 +4,72 @@
 
 ### Live demo at [Netlify](https://delphi-js.netlify.com/)
 
-## TApplication - 
+## TApplication: core object
 
-### Properties
+**[TApplication.js]**
 
 ### Methods
 
-## TComponent - базовый объект для всех компонентов
+ * addComponentsToLibrary
+ * animationSpeed
+ * caption
+ * createForm
+ * createObject
+ * destroyObject
+ * icon 
+ * mainFormName
+ * getMainForm
+ * getObject
+ * getObjectsByClassName
+ * setCSSVariable
+
+## TComponent: base object for all components
+
+**[TComponent.js]**
+
+### Properties
+
+ * name
+ * className
+ * contentProperties
+
+### Methods
+
+ * createContent
+ * deleteContent
+ * destroy
+ * getProperty
+ * setProperty
+ 
+## TComponent &rarr; TControl: base object for visual components
+
+**[TControl.js]**
+
+### Settings  
+ 
+ * bottom
+ * color
+ * fontSize
+ * fontWeight
+ * height
+ * left
+ * minHeight
+ * minWidth
+ * multiLine
+ * right
+ * textAlign
+ * top
+ * width
+ 
+### Properties 
+ 
+### Methods
+
+ * createNode
+ 
+
+
+
 
 ## TComponent -> TControl - визуальный компонент
 
