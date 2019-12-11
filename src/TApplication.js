@@ -173,6 +173,9 @@ Object.defineProperties(TApplication, {
             }
             TApplication.componentModulesLoaded.push(componentModule);
         }
+    },
+    setCSSVariable: {
+        value: Utils.setCSSVariable
     }
 });
 

@@ -23,9 +23,30 @@ html {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 14px;
     overflow: auto;
+    
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; 
+    --font-size: 14px;
+    --font-color: #1F2933;
+    --font-disabled-color: #ACA899;
+    --font-shadow-color: #FFF;
+    --form-background-color: #EEEBD6;
+    --form-caption-font-color: #FFF;
+    --form-caption-font-shadow-color: #072BA2;
+    --button-background-color: #F3F3F3;
+    --button-border-color: #003C74;
+    --button-active-background-color: #E3E3DC;
+    --button-disabled-background-color: #F5F4EA;
+    --button-disabled-border-color: #C9C7BA;
+    --panel-border-color: #ACA899;
+    --panel-border-shadow-color: #FFF;
+    --panel-disabled-border-color: #C9C7BA;
+    --input-background-color: #FFF;
+    --input-border-color: #7F9DB9;
+    --input-invalidated-background-color: #FFE3E3;
+    --input-invalidated-border-color: #E12D39;
+    --input-disabled-background-color: #F5F4EA;    
+    --input-disabled-border-color: #C9C7BA;
 }
 
 body {
@@ -36,26 +57,8 @@ body {
     background-image: url('data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAAAXNSR0IArs4c6QAAAAZQTFRF////zsrFFOhhzwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfbCA8IIAxOHyTqAAAAbElEQVR42u3PMQ0AAAgDsMlHNhqWcHC0Dpqp5S0XFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXF5cjC3IDYNdXepeXAAAAAElFTkSuQmCC');
     background-size: auto;
     background-repeat: repeat;
-    --form-color: #1F2933;
-    --form-color-disabled: #ACA899;
-    --form-shadow-color: #FFF;
-    --form-back-layer: #EEEBD6;
-    --form-caption-color: #FFF;
-    --form-caption-shadow-color: #072BA2;
-    --button-background-color: #F3F3F3;
-    --button-background-active-color: #E3E3DC;
-    --button-background-disabled-color: #F5F4EA;
-    --button-border-color: #003C74;
-    --button-border-disabled-color: #C9C7BA;
-    --panel-border-color: #ACA899;
-    --panel-border-shadow-color: #FFF;
-    --panel-border-disabled-color: #C9C7BA;
-    --input-background-color: #FFF;
-    --input-background-invalidated-color: #FFE3E3;
-    --input-border-color: #7F9DB9;
-    --input-border-invalidated-color: #E12D39;
-    --input-background-disabled-color: #F5F4EA;    
-    --input-border-disabled-color: #C9C7BA;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
 }
 `;
 

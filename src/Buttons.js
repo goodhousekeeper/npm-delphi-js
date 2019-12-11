@@ -36,14 +36,14 @@ const MODULE_STYLES = `
 }
 
 .TApplication .TForm .TButton:active {
-    background-color: var(--button-background-active-color);
+    background-color: var(--button-active-background-color);
     box-shadow: inset -1px -1px 1px 1px #F0F0F0,
                 inset  1px  1px 1px 1px #D1CCC1;
 }
 
 .TApplication .TForm .TButton.Disabled {
-    background-color: var(--button-background-disabled-color);
-    border-color: var(--button-border-disabled-color);
+    background-color: var(--button-disabled-background-color);
+    border-color: var(--button-disabled-border-color);
     box-shadow: none;
     cursor: default;
 }
@@ -51,7 +51,7 @@ const MODULE_STYLES = `
 .TApplication .TForm .TButton.Disabled .TButton__Caption,
 .TApplication .TForm .TBitButton.Disabled .TBitButton__Caption
  {
-    color:  var(--form-color-disabled);
+    color:  var(--font-disabled-color);
 }
 
 .TApplication .TForm .TBitButton .TBitButton__Caption {

@@ -34,17 +34,17 @@ const MODULE_STYLES = `
   opacity: 0.5;
 }
 .TApplication .TForm .TEdit.Disabled .TEdit__Input {
-  color: var(--form-color-disabled);    
+  color: var(--font-disabled-color);    
 }
 
 .TApplication .TForm .TEdit.Invalidated {
-  background-color: var(--input-background-invalidated-color);
-  border-color: var(--input-border-invalidated-color);
+  background-color: var(--input-invalidated-background-color);
+  border-color: var(--input-invalidated-border-color);
 }
 
 .TApplication .TForm .TEdit.Disabled {
-  background-color: var(--input-background-disabled-color);
-  border-color: var(--input-border-disabled-color);
+  background-color: var(--input-disabled-background-color);
+  border-color: var(--input-disabled-border-color);
 }
 
 .TApplication .TForm .TStaticText {
@@ -70,7 +70,7 @@ const MODULE_STYLES = `
 
 .TApplication .TForm .TStaticText.Disabled .TStaticText__Caption
  {
-    color:  var(--form-color-disabled);
+    color:  var(--font-disabled-color);
 }
 
 `;

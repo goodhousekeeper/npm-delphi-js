@@ -45,6 +45,10 @@ export default class Utils {
         iconNode.href = favicon;
     }
 
+    static setCSSVariable(name, value) {
+        document.documentElement.style.setProperty(name, value);
+    }
+
     static animate(options) {
         const start = performance.now();
 

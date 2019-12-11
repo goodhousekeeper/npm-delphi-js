@@ -17,9 +17,9 @@ const MODULE_STYLES = `
     overflow: hidden;
     min-height: 32px;
     min-width: 100px;
-    color: var(--form-color);
-    text-shadow: 1px 1px 0 var(--form-shadow-color);
-    background-color: var(--form-back-layer);
+    color: var(--font-color);
+    text-shadow: 1px 1px 0 var(--font-shadow-color);
+    background-color: var(--form-background-color);
 }
 
 .TApplication .TForm .Borders {
@@ -102,8 +102,8 @@ const MODULE_STYLES = `
     text-overflow: ellipsis;
     font-size: 15px;
     line-height: 24px;
-    color: var(--form-caption-color);
-    text-shadow: 1px 1px 0 var(--form-caption-shadow-color);
+    color: var(--form-caption-font-color);
+    text-shadow: 1px 1px 0 var(--form-caption-font-shadow-color);
 }
 
 .TApplication .TForm .TForm__Title .Buttons {
