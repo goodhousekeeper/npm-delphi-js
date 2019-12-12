@@ -88,25 +88,23 @@
  
 ## TComponent &rarr; TControl &rarr; TOverlay: 
 
-**[TForm.js]**
+**[Forms.js]**
 
 ### Properties  
 
 
-## TComponent -> TControl -> TOverlay - оверлей для отображения модальных окон
+## TComponent &rarr; TControl &rarr; TForm - форма, контейнер для остальных визуальных компонентов
 
-## TComponent -> TControl -> TForm - форма, контейнер для остальных визуальных компонентов
+## TComponent &rarr; TControl &rarr; TPanel - панель, контейнер для визуальных компонентов, визуальное зонирование
 
-## TComponent -> TControl -> TPanel - панель, контейнер для визуальных компонентов, визуальное зонирование
+## TComponent &rarr; TControl &rarr; TGroupBox - 
 
-## TComponent -> TControl -> TPanel -> TGroupBox - панель с полосами прокрутки
+## TComponent &rarr; TControl &rarr; TButton - кнопка
 
-## TComponent -> TControl -> TButton - кнопка
+## TComponent &rarr; TControl &rarr; TButton &rarr; TBitButton - кнопка c иконкой
 
-## TComponent -> TControl -> TButton -> TBitButton - кнопка c иконкой
+## TComponent &rarr; TControl &rarr; TEdit - поле ввода. Построен на основе HTML-элемента INPUT TYPE="TEXT"
 
-## TComponent -> TControl -> TEdit - поле ввода. Построен на основе HTML-элемента INPUT TYPE="TEXT"
+## TComponent &rarr; TControl &rarr; TStaticText - строка текста
 
-## TComponent -> TControl -> TStaticText - строка текста
-
-## TComponent -> TControl -> TPicture - изображение
+## TComponent &rarr; TControl &rarr; TPicture - изображение

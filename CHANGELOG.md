@@ -4,6 +4,14 @@ Inspired by [keepchangelog](https://keepachangelog.com/)
 
 ## [Unreleased]
 
+### To add
+
+ - *maximized* property for TForm
+ - CSS variable for main background image
+
+### To fix
+ - inconsistency with TApplication methods **mainFormName** and **getMainForm**
+
 ## [1.1.3] - 2019-12-11
 
 ### Added  
