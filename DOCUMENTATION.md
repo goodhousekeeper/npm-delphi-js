@@ -86,17 +86,6 @@
  * setEventListener
  * show
  
-## TComponent &rarr; TControl &rarr; TOverlay: 
-
-**[Forms.js]**
-
-### Methods
-
- * createNode
- * hide
- * show 
-
-
 ## TComponent &rarr; TControl &rarr; TForm - container for all visual components
 
 **[Forms.js]**
@@ -111,19 +100,34 @@
  * screenCenter
  * sizeable
  
- 
 ### Methods
 
  * align
  * bringToFront
- * createNode
- * hide
  * maximize
  * restore
  * setActive
- * show
  * showModal
+ 
+## TComponent &rarr; TControl &rarr; TPicture - изображение
+ 
+**[Forms.js]**
 
+### Properties
+
+ * backgroundClip
+ * backgroundColor
+ * backgroundPosition
+ * backgroundRepeat
+ * backgroundSize
+ * image
+ * imagePath
+
+### Methods
+
+ * setImage
+ * setImageByPath
+ 
 
 ## TComponent &rarr; TControl &rarr; TPanel - панель, контейнер для визуальных компонентов, визуальное зонирование
 
@@ -137,4 +141,4 @@
 
 ## TComponent &rarr; TControl &rarr; TStaticText - строка текста
 
-## TComponent &rarr; TControl &rarr; TPicture - изображение
+
