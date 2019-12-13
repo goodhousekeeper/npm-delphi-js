@@ -90,10 +90,40 @@
 
 **[Forms.js]**
 
-### Properties  
+### Methods
+
+ * createNode
+ * hide
+ * show 
 
 
-## TComponent &rarr; TControl &rarr; TForm - форма, контейнер для остальных визуальных компонентов
+## TComponent &rarr; TControl &rarr; TForm - container for all visual components
+
+**[Forms.js]**
+
+### Properties
+
+ * maximized
+ * modal
+ * modalResult
+ * noMaximizedButton
+ * noTitle
+ * screenCenter
+ * sizeable
+ 
+ 
+### Methods
+
+ * align
+ * bringToFront
+ * createNode
+ * hide
+ * maximize
+ * restore
+ * setActive
+ * show
+ * showModal
+
 
 ## TComponent &rarr; TControl &rarr; TPanel - панель, контейнер для визуальных компонентов, визуальное зонирование
 

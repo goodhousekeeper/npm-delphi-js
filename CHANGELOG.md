@@ -8,6 +8,7 @@ Inspired by [keepchangelog](https://keepachangelog.com/)
 
  - *maximized* property for TForm
  - CSS variable for main background image
+ - CSS variable for overlay background color
 
 ### To fix
  - inconsistency with TApplication methods **mainFormName** and **getMainForm**
