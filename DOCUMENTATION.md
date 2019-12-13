@@ -61,7 +61,6 @@
  * left
  * minHeight
  * minWidth
- * multiLine
  * right
  * textAlign
  * top
@@ -169,13 +168,21 @@
 
 ---
 
+## TComponent &rarr; TControl &rarr; TStaticText
+**[Panels.js]**
 
+### Properties
 
+ * multiLine
 
+---
 
+## TComponent &rarr; TControl &rarr; TEdit
+**[Panels.js]**
 
-## TComponent &rarr; TControl &rarr; TEdit - поле ввода. Построен на основе HTML-элемента INPUT TYPE="TEXT"
+### Properties
 
-## TComponent &rarr; TControl &rarr; TStaticText - строка текста
+ * placeholder
+ * text
 
-
+---

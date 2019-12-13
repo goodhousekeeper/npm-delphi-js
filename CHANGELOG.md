@@ -12,8 +12,10 @@ Inspired by [keepchangelog](https://keepachangelog.com/)
 
 ### To fix
  - inconsistency with TApplication methods **mainFormName** and **getMainForm**
+ - move multiline property from TControl to TStaticText
+ - do we need TBitButton and TButton at the same time?
 
-## [1.1.3] - 2019-12-11
+## [1.1.3] - 2019-12-13
 
 ### Added  
 
