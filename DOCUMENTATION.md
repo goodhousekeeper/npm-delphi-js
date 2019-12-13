@@ -7,7 +7,6 @@
 ## TApplication: core object
 
 **[TApplication.js]**
-
 ### Methods
 
  * addComponentsToLibrary
@@ -23,8 +22,9 @@
  * getObjectsByClassName
  * setCSSVariable
 
-## TComponent: base object for all components
+---
 
+## TComponent
 **[TComponent.js]**
 
 ### Properties
@@ -41,8 +41,9 @@
  * getProperty
  * setProperty
  
-## TComponent &rarr; TControl: base object for visual components
-
+---
+ 
+## TComponent &rarr; TControl
 **[TControl.js]**
 
 ### Properties  
@@ -86,8 +87,9 @@
  * setEventListener
  * show
  
-## TComponent &rarr; TControl &rarr; TForm - container for all visual components
-
+---
+ 
+## TComponent &rarr; TControl &rarr; TForm
 **[Forms.js]**
 
 ### Properties
@@ -109,8 +111,9 @@
  * setActive
  * showModal
  
-## TComponent &rarr; TControl &rarr; TPicture - изображение
+--- 
  
+## TComponent &rarr; TControl &rarr; TPicture
 **[Forms.js]**
 
 ### Properties
@@ -128,14 +131,48 @@
  * setImage
  * setImageByPath
  
+--- 
 
-## TComponent &rarr; TControl &rarr; TPanel - панель, контейнер для визуальных компонентов, визуальное зонирование
+## TComponent &rarr; TControl &rarr; TButton
+**[Buttons.js]**
 
-## TComponent &rarr; TControl &rarr; TGroupBox - 
+### Properties
 
-## TComponent &rarr; TControl &rarr; TButton - кнопка
+ * ~~icon~~
+ * toolTip
 
-## TComponent &rarr; TControl &rarr; TButton &rarr; TBitButton - кнопка c иконкой
+---
+
+## TComponent &rarr; TControl &rarr; TButton &rarr; TBitButton
+**[Buttons.js]**
+
+---
+
+## TComponent &rarr; TControl &rarr; TPanel
+**[Panels.js]**
+
+### Properties
+
+ * overflowX
+ * overflowY
+ 
+### Methods
+
+ * ~~caption~~
+ * low
+ * raise 
+ 
+--- 
+
+## TComponent &rarr; TControl &rarr; TGroupBox 
+**[Panels.js]**
+
+---
+
+
+
+
+
 
 ## TComponent &rarr; TControl &rarr; TEdit - поле ввода. Построен на основе HTML-элемента INPUT TYPE="TEXT"
 
