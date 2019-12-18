@@ -16,11 +16,11 @@
  * createObject
  * destroyObject
  * icon 
- * mainFormName
  * getMainForm
  * getObject
  * getObjectsByClassName
  * setCSSVariable
+ * setMainForm
 
 ---
 

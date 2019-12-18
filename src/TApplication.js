@@ -35,10 +35,11 @@ Object.defineProperties(TApplication, {
             })
         }
     },
-    mainFormName: {
-        get: () => mainFormName,
-        set: (newName) => {
-            mainFormName = newName;
+    setMainForm: {
+        value: (newName) => {
+            if (mainFormName === undefined) {
+                mainFormName = newName;
+            }
         }
     },
     getMainForm: {

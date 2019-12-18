@@ -8,7 +8,7 @@ const MODULE_STYLES = `
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: var(--overlay-background-color);
 }
 
 .TApplication .TForm {
@@ -199,7 +199,12 @@ class TForm extends TControl {
         super(properties);
         this.setProperty('modal', false);
         this.setProperty('modalResult', false);
-        this.setProperty('maximized', false);
+        if (this.getProperty('caption') === undefined) {
+            this.setProperty('caption', '');
+        }
+        if (this.getProperty('maximized') === undefined) {
+            this.setProperty('maximized', false);
+        }
         if (this.getProperty('icon') === undefined) {
             this.setProperty('icon', TApplication.icon);
         }
@@ -228,6 +233,9 @@ class TForm extends TControl {
         container.appendChild(borderRight);
         container.appendChild(borderBottom);
         container.appendChild(borderLeft);
+        if (this.getProperty('maximize')) {
+            this.maximize(true);
+        }
 
         /* ------------------------------------------------------------------------------ */
         const endTransition = () => {
@@ -331,6 +339,10 @@ class TForm extends TControl {
                 document.onmousemove = (e) => sizeAt(e);
                 container.onmouseup = () => endTransition()
             }
+        }
+
+        if (this.getProperty('maximized')) {
+            this.maximize(true);
         }
 
         /* ------------------------------------------------------------------------------ */
@@ -451,8 +463,8 @@ class TForm extends TControl {
         return this;
     }
 
-    maximize() {
-        if (this.getProperty('noMaximizeButton')) {
+    maximize(immediate = false) {
+        if (this.getProperty('noMaximizeButton') || this.getProperty('noTitle') ) {
             return this;
         }
         const container = this.objectContainer;
@@ -461,7 +473,7 @@ class TForm extends TControl {
         const widthDelta = window.innerWidth - box.width;
         const heightDelta = window.innerHeight - box.height;
         const animateOptions = {
-            duration: TApplication.animationSpeed,
+            duration: immediate ? 0: TApplication.animationSpeed,
             timing: Constants.ANIMATION_FUNCTION_ARC
         };
         /* save previous position */

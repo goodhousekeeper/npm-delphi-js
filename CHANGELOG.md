@@ -6,14 +6,25 @@ Inspired by [keepchangelog](https://keepachangelog.com/)
 
 ### To add
 
- - *maximized* property for TForm
- - CSS variable for main background image
- - CSS variable for overlay background color
-
 ### To fix
- - inconsistency with TApplication methods **mainFormName** and **getMainForm**
  - move multiline property from TControl to TStaticText
  - do we need TBitButton and TButton at the same time?
+ - do we need **path** npm module import in *post-install.js*?
+ 
+## [1.1.4] - 2019-12-18
+
+### Added
+ - *maximized* property for TForm
+ - CSS variable for overlay background color
+ - CSS variable for main background:
+   - color
+   - image
+   - size
+   - repeat
+   - position
+ 
+### Fixed
+ - inconsistency with TApplication methods **mainFormName** and **getMainForm**. Now it's *setMainForm(newName)**
 
 ## [1.1.3] - 2019-12-13
 

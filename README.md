@@ -9,8 +9,8 @@ See [delphi-js bootstrap project](https://github.com/goodhousekeeper/delphi_on_m
 
 ### Documentation
 
-See in DOCUMENTATION.md
+See in [DOCUMENTATION.md](https://github.com/goodhousekeeper/npm-delphi-js/blob/master/DOCUMENTATION.md)
 
 ### Changelog
 
-See in CHANGELOG.md
+See in [CHANGELOG.md](https://github.com/goodhousekeeper/npm-delphi-js/blob/master/CHANGELOG.md)

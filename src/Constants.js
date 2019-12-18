@@ -25,6 +25,11 @@ html {
     user-select: none;
     overflow: auto;
     
+    --background-color: #E6E6E6; 
+    --background-image: url('data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAAAXNSR0IArs4c6QAAAAZQTFRF////zsrFFOhhzwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfbCA8IIAxOHyTqAAAAbElEQVR42u3PMQ0AAAgDsMlHNhqWcHC0Dpqp5S0XFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXF5cjC3IDYNdXepeXAAAAAElFTkSuQmCC');
+    --background-image-size: auto;   
+    --background-image-repeat: repeat;
+    --background-image-position: 0% 0%;  
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; 
     --font-size: 14px;
     --font-color: #1F2933;
@@ -33,6 +38,7 @@ html {
     --form-background-color: #EEEBD6;
     --form-caption-font-color: #FFF;
     --form-caption-font-shadow-color: #072BA2;
+    --overlay-background-color: rgba(0, 0, 0, 0.25);
     --button-background-color: #F3F3F3;
     --button-border-color: #003C74;
     --button-active-background-color: #E3E3DC;
@@ -53,10 +59,11 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: #E6E6E6;
-    background-image: url('data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAAAXNSR0IArs4c6QAAAAZQTFRF////zsrFFOhhzwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfbCA8IIAxOHyTqAAAAbElEQVR42u3PMQ0AAAgDsMlHNhqWcHC0Dpqp5S0XFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXF5cjC3IDYNdXepeXAAAAAElFTkSuQmCC');
-    background-size: auto;
-    background-repeat: repeat;
+    background-color: var(--background-color);
+    background-image: var(--background-image);
+    background-size: var(--background-image-size);
+    background-repeat: var(--background-image-repeat);
+    background-position: var(--background-image-position);
     font-family: var(--font-family);
     font-size: var(--font-size);
 }
