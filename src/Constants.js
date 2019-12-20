@@ -67,6 +67,11 @@ body {
     font-family: var(--font-family);
     font-size: var(--font-size);
 }
+
+[contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
+}
 `;
 
 const STYLE_TAG_TITLE = 'Delphi.js';

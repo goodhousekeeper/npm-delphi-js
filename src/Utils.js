@@ -4,7 +4,7 @@
 
 import {Constants} from './internal.js'
 
-export default class Utils {
+class Utils {
     /**
      * add HTML node <STYLE> in <HEAD> section with @param {string} style
      * @param {string} style - css styles in text format
@@ -79,3 +79,5 @@ export default class Utils {
         return `${location.replace('/index.html', '')}/${resourcePath}`;
     }
 }
+
+export default Utils

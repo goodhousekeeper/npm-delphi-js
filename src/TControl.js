@@ -1,6 +1,13 @@
 import {Constants, Utils, TComponent, TApplication} from './internal.js'
 
-export default class TControl extends TComponent {
+const style = `
+/* Styles for TControl */
+`;
+
+class TControl extends TComponent {
+    static NAME = 'TControl';
+    static STYLE = style;
+
     createNode() {
         const objectContainer = document.createElement('div');
         let contentContainer = document.createElement('div');
@@ -257,3 +264,6 @@ export default class TControl extends TComponent {
         })
     }
 }
+
+TApplication.addComponentToLibrary(TControl);
+export default TControl;

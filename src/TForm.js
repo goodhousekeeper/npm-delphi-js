@@ -1,15 +1,7 @@
-import {Constants, Utils, TControl, TApplication} from './internal.js'
+import {Constants, TApplication, TControl, Utils} from "./internal.js";
 
-const MODULE_STYLES = `
-/* Styles for TOverlay, TForm, TMessageDlg */
-
-.TOverlay {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--overlay-background-color);
-}
+const style = `
+/* Styles for .TForm */
 
 .TApplication .TForm {
     box-sizing: border-box;
@@ -126,8 +118,7 @@ const MODULE_STYLES = `
 .TApplication .TForm .TForm__Title .CloseButton {
     right: 0;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAIAAAAmdTLBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1NjQwRjhGNTA4QUVFOTExQUM5QzhENDMwQzY4REU4MiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyQTIwQzEwMkFFMjMxMUU5OUNDQkUxOTc4NzU5N0VGOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyQTIwQzEwMUFFMjMxMUU5OUNDQkUxOTc4NzU5N0VGOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU2NDBGOEY1MDhBRUU5MTFBQzlDOEQ0MzBDNjhERTgyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU2NDBGOEY1MDhBRUU5MTFBQzlDOEQ0MzBDNjhERTgyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+dQfAqwAAAw1JREFUeNqUVM9LVFEU/u57b0YlUMpQGFu4qFZtqkUURaJBizQaDIpIWgRRFLRoIdEfkIsgTMgICSsJixb9kiiignYRkeDKICo1KNSZcebN+3Hvfbdz3nvjuPVyGe6c977zfec79zwL+fne4X9zi9Kscx0fmsOeaae3K/syX8b4EIqLqLrwPSgJGcCyoELQ0op/Ay8+a4RV47mlltzE9Qlgk6BMuDmIthzsDCpFlIsIfYQhooiRDDackZCUNAzgu6iUSsXCr2xL6/1vFmddWUZDIxqysB04GTjxL/FbNkesZNv1SCZrZbLun58dmzMO490VlEsM86sIaAfMT2xSxswKMmQVFNGSi1KKclk2Y2N+ekDKVwpwS+jux7XbcCuokM5yGi8vobSIsQ84fYU5tBKkxcnW8KFEtQKvzMy79nPkxiQnJSpiVj6X/egLx3vyLMFoUpOshD82LAhZ8NWB9MnoFL8aaVb7ZDoNHu3kiImAiJyv4bk9Pu/E58v9afDeRxiFya/p374t0CF0QEECC6ziqSXUMxkbQ22zDC71ppiHn9NDvhNWBKEBBSNFRFvX8ERL14bwZDVpiwxI2/lDWF0ntsVgsxaPSK36F7JVlC+pjfgpfOddHf/4O0c4hWJ8FAgdcIo1/sUmUyjhH5lKkef2pofxmTQF6LVQKN/Wdf0Bp0guBpUw/DzFXDjI1+bsTj5vaMbTvzQA3DwVWNo3KqrhaTao88mFu/WiBu5mLdykCGe2p8FnLpFTj4w0LLOun65t6PHh0+tYdlc6PGQS+6JwKsfxtw8QOwgqlMtHPH/7GrGxDU3NaGzi8RBIbkislnwlXR40FejR8FL5iOlmStj9w/AMSBnaniuELaj5PHCCOQWSVsWCA77FXCCSTYVKtg/OfCFqau3E8gKksbM+fwUIaiIhjDBaGOVQFu6WMkpbii8kGV0IYTraWX/PXe/VgdnZi8eKC78bMpYRQsdCbIsVUAqHckXGNoaaQzU5BgF1INe+Y+zNyfdbgQF5eNRd78dvbkkfGamgr/pfgAEA4u1YO0cOA2kAAAAASUVORK5CYII=');
-
-  }
+}
 
 .TApplication .TForm .TForm__Title .MaximizeButton {
     right: 24px;
@@ -185,16 +176,13 @@ const MODULE_STYLES = `
     bottom: 0;
     cursor: se-resize;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1NzQwRjhGNTA4QUVFOTExQUM5QzhENDMwQzY4REU4MiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGNEFBRDg3REFFMjMxMUU5OEY5RTgyOEI4NDE5NEI0QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGNEFBRDg3Q0FFMjMxMUU5OEY5RTgyOEI4NDE5NEI0QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU3NDBGOEY1MDhBRUU5MTFBQzlDOEQ0MzBDNjhERTgyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3NDBGOEY1MDhBRUU5MTFBQzlDOEQ0MzBDNjhERTgyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+j9zGmAAAAGxQTFRF4d3K7ejS7ejU5eDJ5+DL6uXQ6ujV39zE4dzJ6eXR39vD39zH5eHL5eHJ3Na+39rF4dzL3NbA4drG7enW4d3I7ebQ6+TO7urT29fA7OfT6uXPu7Wiu7ai7OjR7enU7enT7urWu7Wk7urV////1SXZ2AAAAGxJREFUeNpEilkOwkAMxd50o2VfprQQJmnI/e/Iq4TAkj8sGQt5E5dpwi9e8Q8Nxq1TrSqzlEpBp2YuqwxVNf6JFjzIGFHoiGFo2ye5E7g0jcv+4FLX4Lv5usUcMa9eIo4gOee+P++up48AAwCnMQ4FktRCuQAAAABJRU5ErkJggg==') no-repeat center center;
-  }
-
-  .TApplication .TPicture {
-    background: transparent no-repeat center center;
-    background-clip: border-box;
-    background-size: auto;
-  }
+}
 `;
 
 class TForm extends TControl {
+    static NAME = 'TForm';
+    static STYLE = style;
+
     constructor(properties) {
         super(properties);
         this.setProperty('modal', false);
@@ -464,7 +452,7 @@ class TForm extends TControl {
     }
 
     maximize(immediate = false) {
-        if (this.getProperty('noMaximizeButton') || this.getProperty('noTitle') ) {
+        if (this.getProperty('noMaximizeButton') || this.getProperty('noTitle')) {
             return this;
         }
         const container = this.objectContainer;
@@ -473,7 +461,7 @@ class TForm extends TControl {
         const widthDelta = window.innerWidth - box.width;
         const heightDelta = window.innerHeight - box.height;
         const animateOptions = {
-            duration: immediate ? 0: TApplication.animationSpeed,
+            duration: immediate ? 0 : TApplication.animationSpeed,
             timing: Constants.ANIMATION_FUNCTION_ARC
         };
         /* save previous position */
@@ -576,51 +564,5 @@ class TForm extends TControl {
     }
 }
 
-class TOverlay extends TControl {
-    createNode() {
-        super.createNode();
-        this.objectContainer.classList.add('TOverlay');
-        this.style.zIndex = Constants.OVERLAY_Z_INDEX;
-    }
-
-    show() {
-        this.style.opacity = '0';
-        super.show();
-        this.fadeIn();
-    }
-
-    hide() {
-        this.fadeOut(() => super.hide());
-    }
-}
-
-class TPicture extends TControl {
-    createNode() {
-        super.createNode();
-        const container = this.objectContainer;
-        container.classList.add('TPicture');
-        Object.assign(container.style, {
-            backgroundColor: this.getProperty('backgroundColor') !== undefined ? this.getProperty('backgroundColor') : '',
-            backgroundRepeat: this.getProperty('backgroundRepeat') !== undefined ? this.getProperty('backgroundRepeat') : '',
-            backgroundPosition: this.getProperty('backgroundPosition') !== undefined ? this.getProperty('backgroundPosition') : '',
-            backgroundClip: this.getProperty('backgroundClip') !== undefined ? this.getProperty('backgroundClip') : '',
-            backgroundSize: this.getProperty('backgroundSize') !== undefined ? this.getProperty('backgroundSize') : ''
-        });
-        if (this.getProperty('image')) {
-            this.setImage(this.getProperty('image'));
-        }
-        if (this.getProperty('imagePath')) {
-            this.setImageByPath(this.getProperty('imagePath'));
-        }
-    }
-
-    setImage(image) {
-        this.style.backgroundImage = `url(${image})`;
-    }
-
-    setImageByPath(imagePath) {
-        this.setImage(Utils.getAbsolutePathToResource(imagePath));
-    }
-}
-
-export {MODULE_STYLES, TForm, TOverlay, TPicture}
+TApplication.addComponentToLibrary(TForm);
+export default TForm;

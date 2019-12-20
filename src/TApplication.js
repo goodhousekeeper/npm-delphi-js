@@ -1,9 +1,8 @@
-import {Utils, Constants, Forms, Buttons, Inputs} from './internal.js'
+import {Utils, Constants} from './internal.js'
 
 /* Application instance */
 const TApplication = Object.create(null);
 /* Private properties */
-const componentModulesLoaded = [];
 const componentLibrary = Object.create(null);
 const objectStorage = Object.create(null);
 const modalStack = [];
@@ -47,9 +46,6 @@ Object.defineProperties(TApplication, {
     },
     modalStack: {
         value: modalStack
-    },
-    componentModulesLoaded: {
-        value: componentModulesLoaded
     },
     contentContainer: {
         value: document.body
@@ -156,23 +152,15 @@ Object.defineProperties(TApplication, {
             return result;
         }
     },
-    addComponentsToLibrary: {
+    addComponentToLibrary: {
         value: (componentModule) => {
-            if (TApplication.componentModulesLoaded.indexOf(componentModule) !== -1) {
-                return false;
+            if (componentModule.NAME in componentLibrary) {
+                return;
             }
-            for (const [key, value] of Object.entries(componentModule)) {
-                if (key === 'MODULE_STYLES') {
-                    Utils.updateStyleNode(value);
-                    continue;
-                }
-                if (componentLibrary[key]) {
-                    throw new Error(`Component with name ${value.name} already exists`);
-                } else {
-                    componentLibrary[key] = value;
-                }
+            if (componentModule.STYLE !== undefined) {
+                Utils.updateStyleNode(componentModule.STYLE);
             }
-            TApplication.componentModulesLoaded.push(componentModule);
+            componentLibrary[componentModule.NAME] = componentModule;
         }
     },
     setCSSVariable: {
@@ -182,17 +170,8 @@ Object.defineProperties(TApplication, {
 
 /* ----------------------------------------------------------------------------- */
 
-/* Application Instance Initialize */
 Utils.addStyleNode(Constants.APPLICATION_STYLES);
 document.body.classList.add('TApplication');
-
-/* Add base components */
-TApplication.addComponentsToLibrary(Forms);
-TApplication.addComponentsToLibrary(Buttons);
-TApplication.addComponentsToLibrary(Inputs);
-
-/* Add core Objects */
-TApplication.createObject(Constants.OVERLAY_PROPERTIES);
 
 /* Set up base properties */
 TApplication.caption = caption;

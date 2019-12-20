@@ -1,7 +1,7 @@
-import {TControl} from './internal.js'
+import {TApplication, TControl} from "./internal.js";
 
-const MODULE_STYLES = `
-/* Styles for TButton, TBitButton */
+const style = `
+/* Styles for TButton */
 
 .TApplication .TForm .TButton {
     box-sizing: border-box;
@@ -13,8 +13,7 @@ const MODULE_STYLES = `
     inset  1px  1px 1px 1px #F0F0F0;
 }
 
-.TApplication .TForm .TButton .TButton__Caption,
-.TApplication .TForm .TBitButton .TBitButton__Caption
+.TApplication .TForm .TButton .TButton__Caption
  {
     top: 0;
     right: 4px;
@@ -30,6 +29,7 @@ const MODULE_STYLES = `
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .TApplication .TForm .TButton:hover {
     box-shadow: inset  -1px  -1px 2px 0px #F8B230,
                 inset   1px   1px 2px 0px #FDD889;                   
@@ -46,42 +46,13 @@ const MODULE_STYLES = `
     border-color: var(--button-disabled-border-color);
     box-shadow: none;
     cursor: default;
-}
-
-.TApplication .TForm .TButton.Disabled .TButton__Caption,
-.TApplication .TForm .TBitButton.Disabled .TBitButton__Caption
- {
     color:  var(--font-disabled-color);
-}
-
-.TApplication .TForm .TBitButton .TBitButton__Caption {
-    left: 24px;    
-}
-
-.TApplication .TForm .TBitButton .TBitButton__Icon {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 24px;
-    background: transparent no-repeat 4px center;
-    filter: grayscale(25%);
-}
-
-.TApplication .TForm .TBitButton:hover .TBitButton__Icon {
-    filter: grayscale(0%);
-}
-
-.TApplication .TForm .TBitButton:active .TBitButton__Icon {
-    filter: grayscale(75%);
-}
-
-
-.TApplication .TForm .TBitButton.Disabled .TBitButton__Icon {
-    filter: grayscale(100%);
 }
 `;
 
 class TButton extends TControl {
+    static NAME = 'TButton';
+    static STYLE = style;
     createNode() {
         super.createNode();
         const container = this.objectContainer;
@@ -98,12 +69,5 @@ class TButton extends TControl {
     }
 }
 
-class TBitButton extends TButton {
-    createNode() {
-        super.createNode();
-        const container = this.objectContainer;
-        container.classList.add('TBitButton');
-    }
-}
-
-export {MODULE_STYLES, TButton, TBitButton}
+TApplication.addComponentToLibrary(TButton);
+export default TButton;

@@ -6,10 +6,9 @@
 
 ## TApplication: core object
 
-**[TApplication.js]**
 ### Methods
 
- * addComponentsToLibrary
+ * addComponentToLibrary
  * animationSpeed
  * caption
  * createForm
@@ -25,7 +24,6 @@
 ---
 
 ## TComponent
-**[TComponent.js]**
 
 ### Properties
 
@@ -44,7 +42,6 @@
 ---
  
 ## TComponent &rarr; TControl
-**[TControl.js]**
 
 ### Properties  
  
@@ -89,7 +86,6 @@
 ---
  
 ## TComponent &rarr; TControl &rarr; TForm
-**[Forms.js]**
 
 ### Properties
 
@@ -113,7 +109,6 @@
 --- 
  
 ## TComponent &rarr; TControl &rarr; TPicture
-**[Forms.js]**
 
 ### Properties
 
@@ -133,7 +128,6 @@
 --- 
 
 ## TComponent &rarr; TControl &rarr; TButton
-**[Buttons.js]**
 
 ### Properties
 
@@ -143,12 +137,10 @@
 ---
 
 ## TComponent &rarr; TControl &rarr; TButton &rarr; TBitButton
-**[Buttons.js]**
 
 ---
 
 ## TComponent &rarr; TControl &rarr; TPanel
-**[Panels.js]**
 
 ### Properties
 
@@ -164,12 +156,10 @@
 --- 
 
 ## TComponent &rarr; TControl &rarr; TGroupBox 
-**[Panels.js]**
 
 ---
 
 ## TComponent &rarr; TControl &rarr; TStaticText
-**[Panels.js]**
 
 ### Properties
 
@@ -178,7 +168,6 @@
 ---
 
 ## TComponent &rarr; TControl &rarr; TEdit
-**[Panels.js]**
 
 ### Properties
 

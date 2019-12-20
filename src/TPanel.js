@@ -1,9 +1,9 @@
-import {TControl} from './internal.js'
+import {TApplication, TControl} from "./internal.js";
 
-const MODULE_STYLES = `
+const style = `
 /* Styles for TPanel */
 
-.TApplication .TForm .TPanel, .TApplication .TForm .TGroupBox {
+.TApplication .TForm .TPanel{
     box-sizing: border-box;
     background-color: var(--form-background-color);
     border: 1px solid var(--panel-border-color);
@@ -32,42 +32,16 @@ const MODULE_STYLES = `
     box-shadow: none;
 }
 
-.TApplication .TForm .TPanel.Disabled, .TApplication .TForm .TGroupBox.Disabled {
+.TApplication .TForm .TPanel.Disabled {
     box-sizing: border-box;
     border-color: var(--panel-disabled-border-color);
     box-shadow: none;
 }
-
-.TApplication .TForm .TGroupBox {
-  margin-top: 8px;
-  border-radius: 4px;
-}
-
-.TApplication .TForm .TGroupBox .TGroupBox__ContentContainer {
-  top: 8px;
-  right: 0;
-  bottom: 0;
-  left: 1px;
-  overflow: hidden
-}
-
-.TApplication .TForm .TGroupBox .TGroupBox__Caption {
-  display: inline-block;
-  padding: 0 4px;
-  top: -8px;
-  left: 8px;
-  height: 16px;
-  line-height: 16px; 
-  background-color: var(--form-background-color);
-}
-
-.TApplication .TForm .TGroupBox.Disabled .TGroupBox__Caption {
-  color:  var(--font-disabled-color);
-}
-
 `;
 
 class TPanel extends TControl {
+    static NAME = 'TPanel';
+    static STYLE = style;
     createNode() {
         super.createNode();
         const container = this.objectContainer;
@@ -98,12 +72,5 @@ class TPanel extends TControl {
     }
 }
 
-class TGroupBox extends TControl {
-    createNode() {
-        super.createNode();
-        const container = this.objectContainer;
-        container.classList.add('TGroupBox');
-    }
-}
-
-export {MODULE_STYLES, TPanel, TGroupBox}
+TApplication.addComponentToLibrary(TPanel);
+export default TPanel;
