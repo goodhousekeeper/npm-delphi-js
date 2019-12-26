@@ -13,8 +13,9 @@ const style = `
 `;
 
 class TOverlay extends TControl {
-    static NAME = 'TOverlay';
-    static STYLE = style;
+    static get NAME() { return 'TOverlay'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         this.objectContainer.classList.add('TOverlay');

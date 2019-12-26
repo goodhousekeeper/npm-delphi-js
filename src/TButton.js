@@ -51,8 +51,9 @@ const style = `
 `;
 
 class TButton extends TControl {
-    static NAME = 'TButton';
-    static STYLE = style;
+    static get NAME() { return 'TButton'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;

@@ -11,8 +11,9 @@ const style = `
 `;
 
 class TPicture extends TControl {
-    static NAME = 'TPicture';
-    static STYLE = style;
+    static get NAME() { return 'TPicture'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;

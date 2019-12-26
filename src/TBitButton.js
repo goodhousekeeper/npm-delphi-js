@@ -49,8 +49,9 @@ const style = `
 
 
 class TBitButton extends TButton {
-    static NAME = 'TBitButton';
-    static STYLE = style;
+    static get NAME() { return 'TBitButton'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;

@@ -5,8 +5,8 @@ const style = `
 `;
 
 class TComponent {
-    static NAME = 'TComponent';
-    static STYLE = style;
+    static get NAME() { return 'TComponent'}
+    static get STYLE() { return style }
 
     constructor(properties) {
         Object.defineProperties(this, {

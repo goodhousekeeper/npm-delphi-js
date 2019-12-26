@@ -46,8 +46,9 @@ const style = `
 `;
 
 class TEdit extends TControl {
-    static NAME = 'TEdit';
-    static STYLE = style;
+    static get NAME() { return 'TEdit'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;

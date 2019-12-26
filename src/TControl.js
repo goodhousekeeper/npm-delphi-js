@@ -5,8 +5,8 @@ const style = `
 `;
 
 class TControl extends TComponent {
-    static NAME = 'TControl';
-    static STYLE = style;
+    static get NAME() { return 'TControl'}
+    static get STYLE() { return style }
 
     createNode() {
         const objectContainer = document.createElement('div');

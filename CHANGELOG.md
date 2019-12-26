@@ -13,6 +13,12 @@ Inspired by [keepchangelog](https://keepachangelog.com/)
  - do we need TBitButton and TButton at the same time?
  - do we need **path** npm module import in *post-install.js*?
  
+## [1.2.1] - 2019-12-26
+
+### Fixed
+
+ - set static getters for NAME and STYLE for components instead of static properties 
+  
 ## [1.2.0] - 2019-12-20
 
 ### Added

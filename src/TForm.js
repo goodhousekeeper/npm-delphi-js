@@ -180,8 +180,8 @@ const style = `
 `;
 
 class TForm extends TControl {
-    static NAME = 'TForm';
-    static STYLE = style;
+    static get NAME() { return 'TForm'}
+    static get STYLE() { return style }
 
     constructor(properties) {
         super(properties);

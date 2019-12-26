@@ -47,8 +47,9 @@ const style = `
 `;
 
 class TGroupBox extends TControl {
-    static NAME = 'TGroupBox';
-    static STYLE = style;
+    static get NAME() { return 'TGroupBox'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;

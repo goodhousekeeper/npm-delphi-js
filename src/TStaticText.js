@@ -31,8 +31,9 @@ const style = `
 `;
 
 class TStaticText extends TControl {
-    static NAME = 'TStaticText';
-    static STYLE = style;
+    static get NAME() { return 'TStaticText'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;

@@ -40,8 +40,9 @@ const style = `
 `;
 
 class TPanel extends TControl {
-    static NAME = 'TPanel';
-    static STYLE = style;
+    static get NAME() { return 'TPanel'}
+    static get STYLE() { return style }
+
     createNode() {
         super.createNode();
         const container = this.objectContainer;
